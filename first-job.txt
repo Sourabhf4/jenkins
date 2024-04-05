@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage('git pull') {
+            steps {
+                sh'''
+                echo "this is my project-1 git pull stage"
+                sudo apt install git -y
+                '''
+                git 'https://github.com/Devops-b1/maven-web-application.git'
+                sh "ls"
+            }
+        }
+        stage('code builde') {
+            steps {
+                sh'''
+                curl -O https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+                sudo tar -xvf apache-maven-3.9.4-bin.tar.gz -C /opt
+                export PATH=$PATH:/opt/apache-maven-3.9.4/bin/
+                mvn clean package -DskipTests
+                '''
+                sh "ls"
+            }
+        }
+    }
+}
