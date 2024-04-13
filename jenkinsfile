@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh'''
                 curl -O https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
-                sudo tar -xvf apache-maven-3.9.4-bin.tar.gz -C /opt
+                tar -xvf apache-maven-3.9.4-bin.tar.gz -C /opt
                 export PATH=$PATH:/opt/apache-maven-3.9.4/bin/
                 mvn clean package -DskipTests
                 '''
