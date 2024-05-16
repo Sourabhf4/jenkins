@@ -1,15 +1,14 @@
 pipeline {
     agent any
     stages{
-        stage {
+        stage("checkout") {
             steps {
-                '''
-                https://github.com/Devops-b1/maven-web-application.git
+                
+                git https://github.com/Devops-b1/maven-web-application.git
 
-                ''' 
-            
+                
             }
 
         }
     }
-} 
+}
