@@ -1,14 +1,21 @@
 pipeline {
     agent any
-    stages{
-        stage("checkout") {
+
+    stages {
+        stage('git fatch') {
             steps {
-                
-                git https://github.com/Devops-b1/maven-web-application.git
-
-                
+                git 'https://github.com/Devops-b1/maven-web-application.git'
             }
-
+        }
+        stage('build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('else') {
+            steps {
+                echo 'not working '
+            }
         }
     }
 }
