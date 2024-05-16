@@ -7,8 +7,8 @@ pipeline {
                 https://github.com/Devops-b1/maven-web-application.git
 
                 ''' 
-                sh 'mvn clean package'
-            }:
+            
+            }
 
         }
     }
