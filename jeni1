@@ -12,7 +12,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('else') {
+       /* stage('else') {
             steps {
                 sh'''
                 rename () {
@@ -25,5 +25,5 @@ pipeline {
                 '''
             }
         }
-    }
+    } */
 }
