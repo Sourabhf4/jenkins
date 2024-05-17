@@ -14,7 +14,15 @@ pipeline {
         }
         stage('else') {
             steps {
-                echo 'not working '
+                sh'''
+                rename () {
+                   mv /var/lib/jenkins/workspace/new/target/maven-web-application.war   /var/lib/jenkins/workspace/new/target/student.war
+                }
+                if ! rename then;
+                    echo "already nmed"
+                fi
+                sudo mv  /var/lib/jenkins/workspace/new/target/student.war  /root/tomcat/webapps/
+                '''
             }
         }
     }
