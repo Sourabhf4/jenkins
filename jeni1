@@ -16,12 +16,12 @@ pipeline {
             steps {
                 sh'''
                 rename () {
-                   mv /var/lib/jenkins/workspace/new/target/maven-web-application.war   /var/lib/jenkins/workspace/new/target/student.war
+                   mv /var/lib/jenkins/workspace/hunter/target/maven-web-application.war   /var/lib/jenkins/workspace/hunter/target/student.war
                 }
                 if ! rename then;
                     echo "already nmed"
                 fi
-                sudo mv  /var/lib/jenkins/workspace/new/target/student.war  /root/tomcat/webapps/
+                sudo mv  /var/lib/jenkins/workspace/hunter/target/student.war  /root/tomcat/webapps/
                 '''
             }
         } 
