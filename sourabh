@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('git pull') {
+            steps {
+                git 'https://github.com/Devops-b1/maven-web-application.git'
+                sh "ls"
+            }
+        }
+        stage('code builde') {
+            steps {
+                sh'''
+                mvn clean package -DskipTests
+                '''
+                sh "ls"
+            }
+        }
+    }
+}
