@@ -15,5 +15,18 @@ pipeline {
                 sh "ls"
             }
         }
+        stage('deploy') {
+            steps {
+                sh'''
+                rename () {
+                   mv /var/lib/jenkins/workspace/hunter1/target/maven-web-application.war   /var/lib/jenkins/workspace/hunter1/target/student.war
+                }
+                if ! rename then;
+                    echo "already nmed"
+                fi
+                sudo mv  /var/lib/jenkins/workspace/hunter1/target/student.war  /root/tomcat/webapps/
+                '''
+            }
+        }
     }
 }
