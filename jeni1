@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('git fatch') {
+        stage('git fetch') {
             steps {
                 git 'https://github.com/Devops-b1/maven-web-application.git'
             }
@@ -12,7 +12,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-       /* stage('else') {
+        stage('else') {
             steps {
                 sh'''
                 rename () {
@@ -24,6 +24,7 @@ pipeline {
                 sudo mv  /var/lib/jenkins/workspace/new/target/student.war  /root/tomcat/webapps/
                 '''
             }
-        }
-    } */
+        } 
+    }
+    
 }
